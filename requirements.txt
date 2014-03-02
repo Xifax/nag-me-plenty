@@ -1,0 +1,7 @@
+atom==0.3.7
+enaml==0.9.1
+kiwisolver==0.1.2
+ply==3.4
+wsgiref==0.1.2
+Cython==0.20.1
+casuarius==1.1
