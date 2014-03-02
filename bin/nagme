@@ -1,0 +1,6 @@
+#!/bin/bash
+
+BINPATH=`dirname $0`
+python "$BINPATH/../nagme/nagme.py" $@
+
+

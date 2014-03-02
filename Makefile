@@ -1,6 +1,9 @@
 update:
 	pip install -r requirements.txt --use-mirrors
 
+run:
+	python nagme/nagme.py
+
 test:
 	nosetests tests --nocapture
 
