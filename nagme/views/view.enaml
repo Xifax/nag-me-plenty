@@ -144,6 +144,9 @@ enamldef NotificationPopup(PopupView):
             foreground = 'white'
             text = 'Hello Enaml Notifications'
             align = 'center'
+        PushButton:
+            text = 'Close'
+            clicked :: parent.hide()
 
 
 enamldef Main(Window): win:
