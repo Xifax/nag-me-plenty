@@ -18,4 +18,6 @@ if __name__ == '__main__':
     view = Main()
     view.show()
 
+    view.center_on_screen()
+
     app.start()
