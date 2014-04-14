@@ -57,7 +57,12 @@ from enaml.widgets.api import (
 )
 from enaml.styling import StyleSheet, Style, Setter
 
+from models import Models
 
+from enaml.layout.api import vbox
+
+
+'''
 POSITIONS = {
     'Top Left': (0.0, 0.0),
     'Top Center': (0.5, 0.0),
@@ -148,6 +153,7 @@ enamldef NotificationPopup(PopupView):
         PushButton:
             text = 'Close'
             clicked :: parent.hide()
+'''
 
 enamldef BannerSheet(StyleSheet):
     Style:
@@ -170,24 +176,34 @@ enamldef BannerSheet(StyleSheet):
             field = 'font'
             value = '18pt Ubuntu Mono'
 
-
 enamldef Main(Window): win:
-    initial_size = (400, 400)
+    # initial_size = (400, 400)
+    attr show_models: bool = False
     BannerSheet:
         pass
-    Container:
+    Container: container:
         Label: banner:
             text = 'Nag Me Plenty'
             style_class << 'banner'
         PushButton:
             text = 'Manage Models'
+            tool_tip = 'Create, update and delete data models'
+            checked := show_models
+            checkable = True
+            clicked :: container.request_relayout()
         PushButton:
-            text = 'List Nuggets'
+            visible << not show_models
+            text = 'List Naggets'
+            tool_tip = 'View existing naggets'
         PushButton:
+            visible << not show_models
             text = 'Options'
-        PushButton:
-            text = 'Quit'
-            clicked :: pass
+            tool_tip = 'Change application settings'
+        Models: models:
+            visible << show_models
+        # PushButton:
+        #     text = 'Quit'
+        #     clicked :: pass
 
 '''
         PushButton:

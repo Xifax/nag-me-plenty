@@ -1,0 +1,12 @@
+from enaml.widgets.api import (
+    Window, Container, PopupView, Form, Label, PushButton, ComboBox, Slider,
+    Field, SpinBox
+)
+
+enamldef Models(Container):
+    Container:
+        PushButton:
+            text = 'Test button'
+            tool_tip = ''
+        Label:
+            text = 'Test label'
