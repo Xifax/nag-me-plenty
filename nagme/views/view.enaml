@@ -51,6 +51,7 @@ enamldef Main(Window):
 '''
 
 from enaml.core.api import Include
+from enaml.core.conditional import Conditional
 from enaml.widgets.api import (
     Window, Container, PopupView, Form, Label, PushButton, ComboBox, Slider,
     Field, SpinBox
@@ -178,29 +179,33 @@ enamldef BannerSheet(StyleSheet):
 
 enamldef Main(Window): win:
     # initial_size = (400, 400)
-    attr show_models: bool = False
+    # attr show_models: bool = False
     BannerSheet:
         pass
     Container: container:
         Label: banner:
             text = 'Nag Me Plenty'
             style_class << 'banner'
-        PushButton:
+        PushButton: show_models:
             text = 'Manage Models'
             tool_tip = 'Create, update and delete data models'
-            checked := show_models
+            # checked := show_models
             checkable = True
-            clicked :: container.request_relayout()
+            # clicked :: container.request_relayout()
         PushButton:
-            visible << not show_models
+            visible << not show_models.checked
             text = 'List Naggets'
             tool_tip = 'View existing naggets'
         PushButton:
-            visible << not show_models
+            visible << not show_models.checked
             text = 'Options'
             tool_tip = 'Change application settings'
-        Models: models:
-            visible << show_models
+        Conditional: models:
+            condition << show_models.checked
+            Models:
+                pass
+        # Models: models:
+        #     visible << show_models
         # PushButton:
         #     text = 'Quit'
         #     clicked :: pass
