@@ -19,12 +19,12 @@ if __name__ == '__main__':
 
     app = QtApplication()
 
-    # Create a QTimer
-    timer = QTimer()
-    # Connect it to f
-    timer.timeout.connect(f)
-    # Call f() every 2 seconds
-    timer.start(2000)
+    # # Create a QTimer
+    # timer = QTimer()
+    # # Connect it to f
+    # timer.timeout.connect(f)
+    # # Call f() every 2 seconds
+    # timer.start(2000)
 
     #view = PersonView(person=john)
     view = Main()
