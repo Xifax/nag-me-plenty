@@ -178,8 +178,6 @@ enamldef BannerSheet(StyleSheet):
             value = '18pt Ubuntu Mono'
 
 enamldef Main(Window): win:
-    # initial_size = (400, 400)
-    # attr show_models: bool = False
     BannerSheet:
         pass
     Container: container:
@@ -189,9 +187,7 @@ enamldef Main(Window): win:
         PushButton: show_models:
             text = 'Manage Models'
             tool_tip = 'Create, update and delete data models'
-            # checked := show_models
             checkable = True
-            # clicked :: container.request_relayout()
         PushButton:
             visible << not show_models.checked
             text = 'List Naggets'
@@ -204,8 +200,6 @@ enamldef Main(Window): win:
             condition << show_models.checked
             Models:
                 pass
-        # Models: models:
-        #     visible << show_models
         # PushButton:
         #     text = 'Quit'
         #     clicked :: pass

@@ -5,8 +5,9 @@ from enaml.widgets.api import (
 
 enamldef Models(Container):
     Container:
+        # Label:
+        #     text = 'Test label'
+        Field:
+            placeholder = 'Test input'
         PushButton:
             text = 'Test button'
-            tool_tip = ''
-        Label:
-            text = 'Test label'
